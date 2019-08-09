@@ -28,7 +28,10 @@ Vá na pasta da src/api/ e execute: `adonis serve --dev`
 #### O que é REST
 [Aula falando sobre REST](https://www.youtube.com/watch?v=S7MduKwvVGk)
 
-## Aplicação - React
+## Aplicação - React + MaterialUI
+
+#### Rodando a API
+Vá na pasta da src/app/ e execute: `npm start`
 
 ***
 
