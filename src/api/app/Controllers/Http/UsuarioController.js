@@ -1,13 +1,13 @@
 'use strict'
+const ServicosUsuario = use("App/Servicos/ServicosUsuario")
 const Usuario = use("App/Models/User")
 
 class UsuarioController {
     async criar({ request, response }) {
         try {
-            const data = request.only(["username", "email", "password"])
-            const userCreated = await Usuario.create(data)
-            return userCreated;
+            const dadosDoUsuario = request.only(["username", "email", "password"]);
 
+            return await ServicosUsuario.criarUsuario(dadosDoUsuario);
         } catch (error) {
             if (error.errno === 19)
                 response.status(400).send("Email ou username já cadastrado");
@@ -21,4 +21,4 @@ class UsuarioController {
     }
 }
 
-module.exports = UsuarioController
+module.exports = UsuarioController;
