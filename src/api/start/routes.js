@@ -18,6 +18,7 @@ const Route = use('Route')
 
 Route.post("/usuario", "UsuarioController.criar");
 Route.get("/usuario", "UsuarioController.listarTodos").middleware('auth');
+Route.get("/usuario/:id", "UsuarioController.obterUsuario").middleware('auth');;
 
 Route.post("/autenticacao", "AutenticacaoController.logar");
 Route.put("/autenticacao", "AutenticacaoController.atualizarToken")

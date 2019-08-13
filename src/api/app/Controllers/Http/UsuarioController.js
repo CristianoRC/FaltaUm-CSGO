@@ -19,6 +19,10 @@ class UsuarioController {
     async listarTodos() {
         return await Usuario.all();
     }
+
+    async obterUsuario({params}) {
+            return await Usuario.findBy('id',params.id);
+    };
 }
 
 module.exports = UsuarioController;
