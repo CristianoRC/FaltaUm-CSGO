@@ -20,8 +20,13 @@ class UsuarioController {
         return await Usuario.all();
     }
 
-    async obterUsuario({params}) {
-            return await Usuario.findBy('id',params.id);
+    async obterUsuario({ response, params }) {
+        const resultado = await Usuario.findBy('id', params.id);
+        if (resultado === null) {
+            response.status(400).send("ID não encontrado.");
+        } else {
+            return resultado;
+        }
     };
 }
 
