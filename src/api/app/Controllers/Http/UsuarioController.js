@@ -29,6 +29,20 @@ class UsuarioController {
             return resultado;
         }
     };
+
+    async AlterarDados({ response, request }) {
+        try {
+            const NovosDados = request.only[("username", "email", "password")];
+
+            return await ServicosUsuario.EditarDados(NovosDados);
+        } catch (error) {
+            if (!error)
+                response.status(200).send("Dados atualizados com sucesso");
+            else
+                response.status(error);
+        }
+
+    }
 }
 
 module.exports = UsuarioController;

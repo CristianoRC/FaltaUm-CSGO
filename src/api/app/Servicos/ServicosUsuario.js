@@ -15,6 +15,16 @@ class ServicosUsuario {
 
         return await Usuario.create(usuario)
     }
+    async EditarDados(usuario) {
+        if(!usuario.username)
+            throw "Insira o nome do usuário";
+        if(!usuario.password)
+            throw "Insira a senha do usuário";
+        if(!usuario.email)
+            throw "Insira o email do usuário";
+
+        return await Usuario.save(usuario);
+    }
    
 }
 
