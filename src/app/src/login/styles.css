@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.03em;
+}
+
+#principal{
+    padding-top: 20px;
+    height: 100vh;
+    width: 40%;
+    font-size: 1.8em;
+    background: rgba(0, 0, 0, 0.97);
+    float: right;
+}
+
+a{
+    font-size: 20px;
+}
+
+body{
+    background-image: url('../img/background-tela-login.jpg');
+    background-size: 100%;
+    background-color: #000000;
+}
