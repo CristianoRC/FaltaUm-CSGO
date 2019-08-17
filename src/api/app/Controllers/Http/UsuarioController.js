@@ -35,7 +35,7 @@ class UsuarioController {
             const usuarioEditado = await Usuario.findBy('id', usuario.id);
             usuarioEditado.merge({ username: usuario.username, email: usuario.email, password: usuario.password});
 
-            return await ServicosUsuario.EditarDados(NovosDados);
+            return await ServicosUsuario.EditarDados(usuarioEditado);
         } catch (error) {
             response.status(401).send(error);
         }
