@@ -16,6 +16,7 @@ class UsuarioController {
         }
     }
 
+
     async listarTodos() {
         return await Usuario.all();
     }

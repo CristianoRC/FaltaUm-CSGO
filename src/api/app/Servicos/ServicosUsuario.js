@@ -15,6 +15,7 @@ class ServicosUsuario {
 
         return await Usuario.create(usuario)
     }
+   
 }
 
 module.exports = new ServicosUsuario();
