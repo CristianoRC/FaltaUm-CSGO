@@ -30,16 +30,16 @@ class UsuarioController {
         }
     };
 
-    async AlterarDados({ response, request }) {
+    async AlterarDados({ request, response }) {
         try {
-            const NovosDados = request.only[("username", "email", "password")];
+            const NovosDados = request.only(["username", "email", "password"]);
 
             return await ServicosUsuario.EditarDados(NovosDados);
         } catch (error) {
             if (!error)
                 response.status(200).send("Dados atualizados com sucesso");
             else
-                response.status(error);
+                response.status(400).send(error);
         }
 
     }
