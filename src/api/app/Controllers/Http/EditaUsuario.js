@@ -18,6 +18,6 @@ async EditaDados({ request, response }) {
       response.status(400).send(error);
   }
 }
-/*teste*/
+
 
 module.exports = TestaDados;
