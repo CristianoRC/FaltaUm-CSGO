@@ -32,14 +32,12 @@ class UsuarioController {
 
     async AlterarDados({ request, response }) {
         try {
-            const NovosDados = request.only(["username", "email", "password"]);
+            const usuarioEditado = await Usuario.findBy('id', usuario.id);
+            usuarioEditado.merge({ username: usuario.username, email: usuario.email, password: usuario.password});
 
             return await ServicosUsuario.EditarDados(NovosDados);
         } catch (error) {
-            if (!error)
-                response.status(200).send("Dados atualizados com sucesso");
-            else
-                response.status(400).send(error);
+            response.status(401).send(error);
         }
 
     }
