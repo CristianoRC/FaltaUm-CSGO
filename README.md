@@ -30,7 +30,7 @@ Vá na pasta da src/api/ e execute: `adonis serve --dev`
 
 ## Aplicação - React + MaterialUI
 
-#### Rodando a API
+#### Rodando o APP
 Vá na pasta da src/app/ e execute: `npm start`
 
 ***
