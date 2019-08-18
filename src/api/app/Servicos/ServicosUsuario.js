@@ -16,21 +16,20 @@ class ServicosUsuario {
         return await Usuario.create(usuario)
     }
     async EditarDados(usuario) {
-        if(!usuario.id)
-            throw "Id não existe";
+        if (!usuario.id && usuario.id !== 0)
+            throw "Id não existe"
         if (!usuario.username)
-            throw "Insira o nome do usuário";
-        if (!usuario.password)
-            throw "Insira a senha do usuário";
+            throw "Insira o nome do usuário"
         if (!usuario.email)
-            throw "Insira o email do usuário";
-        
-       
-        const usuarioEditado = await Usuario.findBy('id', usuario.id);
-        usuarioEditado.merge({ username: usuario.username, email: usuario.email, password: usuario.password});
-        
-        
-        return await usuarioEditado.save();
+            throw "Insira o email do usuário"
+
+
+        const usuarioEditado = await Usuario.findBy('id', usuario.id)
+        usuarioEditado.merge({ username: usuario.username, email: usuario.email })
+
+        await usuarioEditado.save()
+
+        return usuarioEditado
     }
 
 }
