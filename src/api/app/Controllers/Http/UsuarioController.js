@@ -29,10 +29,10 @@ class UsuarioController {
             return resultado;
         }
     }
-    async AlterarDados(request, response) {
+    async AlterarDados({ request, response, params }) {
         try {
-            const { username, email, password, id } = request.all();
-            return await ServicosUsuario.EditarDados({username, email, password, id});
+            const { username, email } = request.all();
+            return await ServicosUsuario.EditarDados({ username, email, id: params.id });
         } catch (error) {
             response.status(401).send(error);
         }
