@@ -16,6 +16,7 @@ class UsuarioController {
         }
     }
 
+
     async listarTodos() {
         return await Usuario.all();
     }
@@ -27,7 +28,15 @@ class UsuarioController {
         } else {
             return resultado;
         }
-    };
+    }
+    async AlterarDados(request, response) {
+        try {
+            const { username, email, password, id } = request.all();
+            return await ServicosUsuario.EditarDados({username, email, password, id});
+        } catch (error) {
+            response.status(401).send(error);
+        }
+    }
 }
 
 module.exports = UsuarioController;
