@@ -28,18 +28,14 @@ class UsuarioController {
         } else {
             return resultado;
         }
-    };
-
-    async AlterarDados({ request, response }) {
+    }
+    async AlterarDados(request, response) {
         try {
-            const usuarioEditado = await Usuario.findBy('id', usuario.id);
-            usuarioEditado.merge({ username: usuario.username, email: usuario.email, password: usuario.password});
-
-            return await ServicosUsuario.EditarDados(usuarioEditado);
+            const { username, email, password, id } = request.all();
+            return await ServicosUsuario.EditarDados({username, email, password, id});
         } catch (error) {
             response.status(401).send(error);
         }
-
     }
 }
 
