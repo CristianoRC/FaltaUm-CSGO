@@ -31,6 +31,14 @@ class ServicosUsuario {
 
         return usuarioEditado
     }
+    async UsuarioObtido(usuario) {
+        const usuarioObtido = await Usuario.findBy('id', usuario.id);
+        
+        if (usuarioObtido.length === 0)
+            throw error;
+
+        return usuarioObtido;
+    }
 
 }
 
