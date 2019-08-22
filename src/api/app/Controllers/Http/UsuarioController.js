@@ -16,19 +16,18 @@ class UsuarioController {
         }
     }
 
-
     async listarTodos() {
         return await Usuario.all();
     }
 
     async obterUsuario({ response, params }) {
-        const resultado = await Usuario.findBy('id', params.id);
-        if (resultado === null) {
-            response.status(400).send("ID não encontrado.");
-        } else {
-            return resultado;
+        try {
+            return await ServicosUsuario.ObterUsuario({ id: params.id });
+        } catch (error) {
+            response.status(400).send(error);
         }
     }
+
     async AlterarDados({ request, response, params }) {
         try {
             const { username, email } = request.all();

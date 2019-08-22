@@ -32,6 +32,15 @@ class ServicosUsuario {
         return usuarioEditado
     }
 
+    async ObterUsuario(usuario) {
+        const usuarioObtido = await Usuario.findBy('id', usuario.id);
+        
+        if (usuarioObtido === null)
+            throw 'Id inexistente'
+
+        return usuarioObtido;
+    }
+
 }
 
 module.exports = new ServicosUsuario();
