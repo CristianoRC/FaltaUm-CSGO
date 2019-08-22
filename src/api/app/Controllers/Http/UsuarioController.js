@@ -16,16 +16,15 @@ class UsuarioController {
         }
     }
 
-
     async listarTodos() {
         return await Usuario.all();
     }
 
     async obterUsuario({ response, params }) {
         try {
-            return await ServicosUsuario.UsuarioObtido({ id: params.id });
+            return await ServicosUsuario.ObterUsuario({ id: params.id });
         } catch (error) {
-            response.status(400).send('Id não encontrado');
+            response.status(400).send(error);
         }
     }
 
