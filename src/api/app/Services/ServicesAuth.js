@@ -1,4 +1,4 @@
-class ServicoAutenticacao {
+class servicesAuth {
   async logar(email, senha, autenticador) {
     return await autenticador.withRefreshToken()
       .attempt(email, senha, {
@@ -16,4 +16,4 @@ class ServicoAutenticacao {
 
 }
 
-module.exports = new ServicoAutenticacao();
+module.exports = new servicesAuth();

@@ -1,13 +1,13 @@
 'use strict'
-const ServicosUsuario = use("App/Servicos/ServicosUsuario")
-const Usuario = use("App/Models/User")
+const ServicesUser = use("App/Services/ServicesUser")
+const User = use("App/Models/User")
 
-class UsuarioController {
+class UserController {
     async criar({ request, response }) {
         try {
-            const dadosDoUsuario = request.only(["username", "email", "password"]);
+            const dataUser = request.only(["username", "email", "password"]);
 
-            return await ServicosUsuario.criarUsuario(dadosDoUsuario);
+            return await ServicesUser.criarUsuario(dataUser);
         } catch (error) {
             if (error.errno === 19)
                 response.status(400).send("Email ou username já cadastrado");
@@ -17,12 +17,12 @@ class UsuarioController {
     }
 
     async listarTodos() {
-        return await Usuario.all();
+        return await User.all();
     }
 
     async obterUsuario({ response, params }) {
         try {
-            return await ServicosUsuario.ObterUsuario({ id: params.id });
+            return await servicesUser.ObterUsuario({ id: params.id });
         } catch (error) {
             response.status(400).send(error);
         }
@@ -31,11 +31,11 @@ class UsuarioController {
     async AlterarDados({ request, response, params }) {
         try {
             const { username, email } = request.all();
-            return await ServicosUsuario.EditarDados({ username, email, id: params.id });
+            return await servicesUser.EditarDados({ username, email, id: params.id });
         } catch (error) {
             response.status(401).send(error);
         }
     }
 }
 
-module.exports = UsuarioController;
+module.exports = UserController;

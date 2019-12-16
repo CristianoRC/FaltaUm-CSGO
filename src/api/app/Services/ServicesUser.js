@@ -2,7 +2,7 @@
 const Usuario = use("App/Models/User")
 
 
-class ServicosUsuario {
+class ServicesUser {
     async criarUsuario(usuario) {
         if (!usuario.username)
             throw "Insira o nome do usuário";
@@ -43,4 +43,4 @@ class ServicosUsuario {
 
 }
 
-module.exports = new ServicosUsuario();
+module.exports = new ServicesUser();
