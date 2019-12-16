@@ -1,3 +1,5 @@
+'use strict'
+
 const ServicesTeam = use('App/Services/ServicesTeam')
 const User = use('App/Models/User')
 
