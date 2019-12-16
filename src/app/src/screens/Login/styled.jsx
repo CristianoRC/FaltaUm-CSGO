@@ -6,7 +6,7 @@ const width = '250px'
 
 export const MainLogin = styled.main`
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     background: url(${BackgroundImg}) no-repeat center center fixed;
 `
 
@@ -56,4 +56,14 @@ export const TitleLogin = styled.h1`
     font-family: fantasy;
     color: #f0640e;
     padding: 20px;
+`
+
+export const Img = styled.img`
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+
+    :hover {
+        cursor: pointer;
+    }
 `
